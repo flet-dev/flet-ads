@@ -1,3 +1,9 @@
 
 src/.DS_Store
 .DS_Store
+*.lock
+src/flet_ads.egg-info/dependency_links.txt
+src/flet_ads.egg-info/PKG-INFO
+src/flet_ads.egg-info/requires.txt
+src/flet_ads.egg-info/SOURCES.txt
+src/flet_ads.egg-info/top_level.txt

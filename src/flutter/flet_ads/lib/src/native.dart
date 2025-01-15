@@ -22,59 +22,59 @@ class NativeAdControl extends StatefulWidget {
 }
 
 class _NativeAdControlState extends State<NativeAdControl> with FletStoreMixin {
-  NativeAd? _nativeAd;
   bool _isLoaded = false;
 
   void loadAd() {
-    _nativeAd = NativeAd(
-        adUnitId: widget.control
-            .attrString("unitId", 'ca-app-pub-3940256099942544/2247696110')!,
-        listener: NativeAdListener(
-          onAdLoaded: (ad) {
-            debugPrint('$NativeAd loaded.');
-            widget.backend.triggerControlEvent(widget.control.id, "load");
-            setState(() {
-              _isLoaded = true;
-            });
-          },
-          onAdFailedToLoad: (ad, error) {
-            widget.backend.triggerControlEvent(
-                widget.control.id, "error", error.toString());
-            // Dispose the ad here to free resources.
-            debugPrint('$NativeAd failedToLoad: $error');
-            ad.dispose();
-          },
-          onAdClicked: (ad) {
-            widget.backend.triggerControlEvent(widget.control.id, "click");
-          },
-          onAdImpression: (ad) {
-            widget.backend.triggerControlEvent(widget.control.id, "impression");
-          },
-          onAdClosed: (ad) {
-            widget.backend.triggerControlEvent(widget.control.id, "close");
-          },
-          onAdOpened: (ad) {
-            widget.backend.triggerControlEvent(widget.control.id, "open");
-          },
-          onAdWillDismissScreen: (ad) {
-            widget.backend
-                .triggerControlEvent(widget.control.id, "willDismiss");
-          },
-          onPaidEvent: (ad, valueMicros, precision, currencyCode) {
-            widget.backend.triggerControlEvent(
-                widget.control.id,
-                "paidEvent",
-                jsonEncode({
-                  "value_micros": valueMicros,
-                  "precision": precision,
-                  "currency_code": currencyCode
-                }));
-          },
-        ),
-        request: const AdRequest(),
-        nativeTemplateStyle: parseNativeTemplateStyle(
-            Theme.of(context), widget.control, "nativeTemplateStyle"))
-      ..load();
+    NativeAd(
+            adUnitId: widget.control.attrString(
+                "unitId", 'ca-app-pub-3940256099942544/2247696110')!,
+            listener: NativeAdListener(
+              onAdLoaded: (ad) {
+                debugPrint('$NativeAd loaded.');
+                widget.backend.triggerControlEvent(widget.control.id, "load");
+                setState(() {
+                  _isLoaded = true;
+                });
+              },
+              onAdFailedToLoad: (ad, error) {
+                widget.backend.triggerControlEvent(
+                    widget.control.id, "error", error.toString());
+                // Dispose the ad here to free resources.
+                debugPrint('$NativeAd failedToLoad: $error');
+                ad.dispose();
+              },
+              onAdClicked: (ad) {
+                widget.backend.triggerControlEvent(widget.control.id, "click");
+              },
+              onAdImpression: (ad) {
+                widget.backend
+                    .triggerControlEvent(widget.control.id, "impression");
+              },
+              onAdClosed: (ad) {
+                widget.backend.triggerControlEvent(widget.control.id, "close");
+              },
+              onAdOpened: (ad) {
+                widget.backend.triggerControlEvent(widget.control.id, "open");
+              },
+              onAdWillDismissScreen: (ad) {
+                widget.backend
+                    .triggerControlEvent(widget.control.id, "willDismiss");
+              },
+              onPaidEvent: (ad, valueMicros, precision, currencyCode) {
+                widget.backend.triggerControlEvent(
+                    widget.control.id,
+                    "paidEvent",
+                    jsonEncode({
+                      "value_micros": valueMicros,
+                      "precision": precision,
+                      "currency_code": currencyCode
+                    }));
+              },
+            ),
+            request: const AdRequest(),
+            nativeTemplateStyle: parseNativeTemplateStyle(
+                Theme.of(context), widget.control, "nativeTemplateStyle"))
+        .load();
   }
 
   @override

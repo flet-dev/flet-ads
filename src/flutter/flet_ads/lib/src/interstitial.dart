@@ -20,7 +20,6 @@ class InterstitialAdControl extends StatefulWidget {
 class _InterstitialAdControlState extends State<InterstitialAdControl>
     with FletStoreMixin {
   InterstitialAd? _interstitialAd;
-  bool _isLoaded = false;
 
   @override
   Widget build(BuildContext context) {
@@ -35,21 +34,19 @@ class _InterstitialAdControlState extends State<InterstitialAdControl>
           request: const AdRequest(),
           adLoadCallback: InterstitialAdLoadCallback(
             onAdLoaded: (ad) {
-              ad.fullScreenContentCallback = FullScreenContentCallback(
-                  onAdShowedFullScreenContent: (ad) {
+              ad.fullScreenContentCallback =
+                  FullScreenContentCallback(onAdShowedFullScreenContent: (ad) {
                 widget.backend.triggerControlEvent(widget.control.id, "open");
-              },
-                  onAdImpression: (ad) {
+              }, onAdImpression: (ad) {
                 widget.backend
                     .triggerControlEvent(widget.control.id, "impression");
-              },
-                  onAdFailedToShowFullScreenContent: (ad, err) {
+              }, onAdFailedToShowFullScreenContent: (ad, err) {
                 widget.backend.triggerControlEvent(widget.control.id, "error");
                 // Dispose the ad here to free resources.
                 ad.dispose();
               },
-                  // Called when the ad dismissed full screen content.
-                  onAdDismissedFullScreenContent: (ad) {
+                      // Called when the ad dismissed full screen content.
+                      onAdDismissedFullScreenContent: (ad) {
                 widget.backend.triggerControlEvent(widget.control.id, "close");
                 // Dispose the ad here to free resources.
                 ad.dispose();
@@ -63,9 +60,6 @@ class _InterstitialAdControlState extends State<InterstitialAdControl>
             },
             onAdFailedToLoad: (LoadAdError error) {
               debugPrint('InterstitialAd failed to load: $error');
-              setState(() {
-                _isLoaded = false;
-              });
               _interstitialAd?.dispose();
             },
           ));

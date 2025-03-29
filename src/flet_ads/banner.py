@@ -3,6 +3,7 @@ from typing import Any, Optional, Union
 from flet.core.animation import AnimationValue
 from flet.core.control import OptionalNumber
 from flet.core.ref import Ref
+from flet.core.tooltip import TooltipValue
 from flet.core.types import (
     OffsetValue,
     OptionalControlEventCallable,
@@ -12,6 +13,8 @@ from flet.core.types import (
 )
 
 from flet_ads.base_ad import BaseAd
+
+__all__ = ["BannerAd"]
 
 
 class BannerAd(BaseAd):
@@ -48,18 +51,18 @@ class BannerAd(BaseAd):
         expand_loose: Optional[bool] = None,
         col: Optional[ResponsiveNumber] = None,
         opacity: OptionalNumber = None,
-        rotate: RotateValue = None,
-        scale: ScaleValue = None,
-        offset: OffsetValue = None,
+        rotate: Optional[RotateValue] = None,
+        scale: Optional[ScaleValue] = None,
+        offset: Optional[OffsetValue] = None,
         aspect_ratio: OptionalNumber = None,
-        animate_opacity: AnimationValue = None,
-        animate_size: AnimationValue = None,
-        animate_position: AnimationValue = None,
-        animate_rotation: AnimationValue = None,
-        animate_scale: AnimationValue = None,
-        animate_offset: AnimationValue = None,
+        animate_opacity: Optional[AnimationValue] = None,
+        animate_size: Optional[AnimationValue] = None,
+        animate_position: Optional[AnimationValue] = None,
+        animate_rotation: Optional[AnimationValue] = None,
+        animate_scale: Optional[AnimationValue] = None,
+        animate_offset: Optional[AnimationValue] = None,
         on_animation_end: OptionalControlEventCallable = None,
-        tooltip: Optional[str] = None,
+        tooltip: Optional[TooltipValue] = None,
         visible: Optional[bool] = None,
         disabled: Optional[bool] = None,
         data: Any = None,

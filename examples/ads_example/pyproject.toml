@@ -3,10 +3,10 @@ name = "ads_example"
 version = "1.0.0"
 description = ""
 readme = "README.md"
-requires-python = ">=3.8"
+requires-python = ">=3.9"
 dependencies = [
   "flet-ads @ git+https://github.com/flet-dev/flet-ads.git",
-  "flet>=0.25.2",
+    "flet>=0.70.0",
 ]
 
 
@@ -30,5 +30,5 @@ path = "src"
 
 [tool.uv]
 dev-dependencies = [
-    "flet[all]>=0.25.2",
+    "flet[all]>=0.70.0",
 ]

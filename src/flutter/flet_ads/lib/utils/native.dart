@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:collection/collection.dart';
 import 'package:flet/flet.dart';
 import 'package:flutter/material.dart';
@@ -20,50 +18,34 @@ NativeTemplateFontStyle? parseNativeTemplateFontStyle(String? value,
       defaultValue;
 }
 
-NativeTemplateTextStyle? parseNativeTemplateTextStyle(
-    ThemeData theme, Control control, String propName) {
-  dynamic j;
-  var v = control.attrString(propName, null);
-  if (v == null) return null;
+NativeTemplateTextStyle? parseNativeTemplateTextStyle(dynamic value,
+    ThemeData theme,
+    [NativeTemplateTextStyle? defaultValue]) {
+  if (value == null) return defaultValue;
 
-  j = json.decode(v);
-  return nativeTextStyleFromJson(theme, j);
-}
-
-NativeTemplateTextStyle? nativeTextStyleFromJson(
-    ThemeData theme, Map<String, dynamic>? json) {
-  if (json == null) return null;
   return NativeTemplateTextStyle(
-    size: parseDouble(json["size"]),
-    textColor: parseColor(theme, json["color"]),
-    backgroundColor: parseColor(theme, json["bgColor"]),
-    style: parseNativeTemplateFontStyle(json["style"]),
+    size: parseDouble(value["size"]),
+    textColor: parseColor(value["color"], theme),
+    backgroundColor: parseColor(value["bgcolor"], theme),
+    style: parseNativeTemplateFontStyle(value["style"]),
   );
 }
 
-NativeTemplateStyle? parseNativeTemplateStyle(
-    ThemeData theme, Control control, String propName) {
-  dynamic j;
-  var v = control.attrString(propName, null);
-  if (v == null) return null;
+NativeTemplateStyle? parseNativeTemplateStyle(dynamic value, ThemeData theme,
+    [NativeTemplateStyle? defaultValue]) {
+  if (value == null) return defaultValue;
 
-  j = json.decode(v);
-  return nativeTemplateStyleFromJson(theme, j);
-}
-
-NativeTemplateStyle nativeTemplateStyleFromJson(
-    ThemeData theme, Map<String, dynamic> json) {
   return NativeTemplateStyle(
       templateType:
-          parseTemplateType(json["template_type"], TemplateType.medium)!,
-      mainBackgroundColor: parseColor(theme, "main_bgcolor"),
-      cornerRadius: parseDouble(json["corner_radius"]),
-      callToActionTextStyle:
-          nativeTextStyleFromJson(theme, json["call_to_action_text_style"]),
+          parseTemplateType(value["template_type"], TemplateType.medium)!,
+      mainBackgroundColor: parseColor(value["main_bgcolor"], theme),
+      cornerRadius: parseDouble(value["corner_radius"]),
+      callToActionTextStyle: parseNativeTemplateTextStyle(
+          theme, value["call_to_action_text_style"]),
       primaryTextStyle:
-          nativeTextStyleFromJson(theme, json["primary_text_style"]),
+          parseNativeTemplateTextStyle(value["primary_text_style"], theme),
       secondaryTextStyle:
-          nativeTextStyleFromJson(theme, json["secondary_text_style"]),
+          parseNativeTemplateTextStyle(value["secondary_text_style"], theme),
       tertiaryTextStyle:
-          nativeTextStyleFromJson(theme, json["tertiary_text_style"]));
+          parseNativeTemplateTextStyle(value["tertiary_text_style"], theme));
 }

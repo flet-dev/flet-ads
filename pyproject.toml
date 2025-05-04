@@ -6,12 +6,10 @@ readme = "README.md"
 authors = [
     { name = "Flet contributors", email = "hello@flet.dev" }
 ]
-classifiers = [
-  "License :: OSI Approved :: Apache Software License",
-]
-requires-python = ">=3.9"
+license = "Apache-2.0"
+requires-python = ">=3.10"
 dependencies = [
-    "flet>=0.70.0",
+    "flet",
 ]
 
 [project.urls]
@@ -20,16 +18,21 @@ Documentation = "https://flet.dev/docs/controls/ads"
 Repository = "https://github.com/flet-dev/flet-ads"
 Issues = "https://github.com/flet-dev/flet-ads/issues"
 
-[tool.setuptools.package-data]
-"flutter.flet_ads" = ["**/*"]
-
 [tool.uv]
 dev-dependencies = [
-    "flet[all]>=0.70.0",
+    "flet",
+    "flet-cli",
+    "flet-desktop",
+    #"mkdocs",
+    #"mkdocs-material",
+    #"mkdocstrings[python]"
+    "pre-commit>=4.2.0",
 ]
 
-[tool.setuptools]
-license-files = []
+[tool.uv.sources]
+flet = { git = "https://github.com/flet-dev/flet", subdirectory = "sdk/python/packages/flet", rev = "v1" }
+flet-cli = { git = "https://github.com/flet-dev/flet", subdirectory = "sdk/python/packages/flet-cli", rev = "v1" }
+flet-desktop = { git = "https://github.com/flet-dev/flet", subdirectory = "sdk/python/packages/flet-desktop", rev = "v1" }
 
 [build-system]
 requires = ["setuptools"]

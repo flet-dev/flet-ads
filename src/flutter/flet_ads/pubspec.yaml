@@ -15,7 +15,12 @@ dependencies:
   collection: ^1.16.0
   google_mobile_ads: ^5.2.0
 
-  flet: ^0.25.2
+  # flet: 0.70.0
+  flet:
+    git:
+      url: https://github.com/flet-dev/flet.git
+      path: packages/flet
+      ref: v1
 
 dev_dependencies:
   flutter_test:

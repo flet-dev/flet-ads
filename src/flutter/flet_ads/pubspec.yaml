@@ -3,6 +3,7 @@ description: Flet Ads control
 homepage: https://flet.dev
 repository: https://github.com/flet-dev/flet-ads/src/flutter/flet_ads
 version: 0.2.0
+publish_to: none
 
 environment:
   sdk: '>=3.2.3 <4.0.0'

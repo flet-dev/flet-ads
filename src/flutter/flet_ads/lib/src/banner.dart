@@ -2,6 +2,8 @@ import 'package:flet/flet.dart';
 import 'package:flutter/widgets.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 
+import '../utils/ads.dart';
+
 class BannerAdControl extends StatefulWidget {
   final Control control;
 
@@ -23,7 +25,8 @@ class _BannerAdControlState extends State<BannerAdControl> with FletStoreMixin {
         : 'ca-app-pub-3940256099942544/1033173712';
     BannerAd bannerAd = BannerAd(
       adUnitId: widget.control.getString("unit_id", testAdUnitId)!,
-      request: const AdRequest(),
+      request: parseAdRequest(
+          widget.control.get("request"), const AdRequest())!,
       size: AdSize.banner,
       listener: BannerAdListener(
         // Called when an ad is successfully received.
@@ -56,10 +59,11 @@ class _BannerAdControlState extends State<BannerAdControl> with FletStoreMixin {
         onAdWillDismissScreen: (Ad ad) {
           widget.control.triggerEvent("will_dismiss");
         },
-        onPaidEvent: (ad, valueMicros, precision, currencyCode) {
-          widget.control.triggerEvent("paid_event", {
-            "value_micros": valueMicros,
-            "precision": precision,
+        onPaidEvent: (ad, double valueMicros, PrecisionType precision,
+            String currencyCode) {
+          widget.control.triggerEvent("paid", {
+            "value": valueMicros,
+            "precision": precision.name,
             "currency_code": currencyCode
           });
         },

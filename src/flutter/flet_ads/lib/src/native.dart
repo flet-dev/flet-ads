@@ -2,6 +2,7 @@ import 'package:flet/flet.dart';
 import 'package:flutter/material.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 
+import '../utils/ads.dart';
 import '../utils/native.dart';
 
 class NativeAdControl extends StatefulWidget {
@@ -35,7 +36,6 @@ class _NativeAdControlState extends State<NativeAdControl> with FletStoreMixin {
         factoryId: factoryId,
         listener: NativeAdListener(
           onAdLoaded: (ad) {
-            debugPrint('$NativeAd loaded.');
             widget.control.triggerEvent("load");
             setState(() {
               _isLoaded = true;
@@ -45,30 +45,22 @@ class _NativeAdControlState extends State<NativeAdControl> with FletStoreMixin {
             widget.control.triggerEvent("error", error.toString());
             ad.dispose(); // Dispose the ad here to free resources
           },
-          onAdClicked: (ad) {
-            widget.control.triggerEvent("click");
-          },
-          onAdImpression: (ad) {
-            widget.control.triggerEvent("impression");
-          },
-          onAdClosed: (ad) {
-            widget.control.triggerEvent("close");
-          },
-          onAdOpened: (ad) {
-            widget.control.triggerEvent("open");
-          },
-          onAdWillDismissScreen: (ad) {
-            widget.control.triggerEvent("will_dismiss");
-          },
+          onAdClicked: (ad) => widget.control.triggerEvent("click"),
+          onAdImpression: (ad) => widget.control.triggerEvent("impression"),
+          onAdClosed: (ad) => widget.control.triggerEvent("close"),
+          onAdOpened: (ad) => widget.control.triggerEvent("open"),
+          onAdWillDismissScreen: (ad) =>
+              widget.control.triggerEvent("will_dismiss"),
           onPaidEvent: (Ad ad, valueMicros, precision, currencyCode) {
-            widget.control.triggerEvent("paid_event", {
-              "value_micros": valueMicros,
+            widget.control.triggerEvent("paid", {
+              "value": valueMicros,
               "precision": precision,
               "currency_code": currencyCode
             });
           },
         ),
-        request: const AdRequest(),
+        request:
+            parseAdRequest(widget.control.get("request"), const AdRequest())!,
         nativeTemplateStyle: templateStyle);
 
     if (!_isLoaded) {

@@ -8,7 +8,7 @@ from .base_ad import BaseAd
 @ft.control("InterstitialAd")
 class InterstitialAd(BaseAd):
     """
-    Displays a full screen interstitial ad.
+    Displays a full-screen interstitial ad.
     """
 
     def show(self):

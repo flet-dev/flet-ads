@@ -80,9 +80,9 @@ nav:
       - InterstitialAd: interstitial_ad.md
       # - NativeAd: native_ad.md
       - Types:
-        - AdRequest: ad_request.md
-        - PaidAdRequest: paid_ad_event.md
-        - PrecisionType: precision_type.md
+        - AdRequest: types/ad_request.md
+        - PaidAdRequest: types/paid_ad_event.md
+        - PrecisionType: types/precision_type.md
   - Changelog: changelog.md
   - License: license.md
 

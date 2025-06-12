@@ -1,6 +1,6 @@
 import flet as ft
-from .banner_ad import BannerAd
 
+from .banner_ad import BannerAd
 from .types import NativeAdTemplateStyle
 
 __all__ = ["NativeAd"]

@@ -1,14 +1,10 @@
 from .banner_ad import BannerAd
 from .base_ad import BaseAd
-from .interstitial import InterstitialAd
-from .types import (
-    PrecisionType,
-    PaidAdEvent,
+from .interstitial_ad import InterstitialAd
+from .types import (  # NativeAdTemplateStyle,; NativeAdTemplateTextStyle,; NativeAdTemplateType,; NativeTemplateFontStyle,
     AdRequest,
-    # NativeAdTemplateStyle,
-    # NativeAdTemplateTextStyle,
-    # NativeAdTemplateType,
-    # NativeTemplateFontStyle,
+    PaidAdEvent,
+    PrecisionType,
 )
-# from .native import NativeAd
 
+# from .native_ad import NativeAd

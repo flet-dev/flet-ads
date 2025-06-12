@@ -1,6 +1,7 @@
 import asyncio
 
 import flet as ft
+
 from .base_ad import BaseAd
 
 
@@ -8,10 +9,6 @@ from .base_ad import BaseAd
 class InterstitialAd(BaseAd):
     """
     Displays a full screen interstitial ad.
-
-    -----
-
-    Online docs: https://flet.dev/docs/controls/interstitialad
     """
 
     def show(self):

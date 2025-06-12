@@ -1,1 +1,1 @@
-::: flet_ads.ads.BaseAd
+::: flet_ads.BaseAd

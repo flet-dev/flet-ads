@@ -75,7 +75,10 @@ extra:
 nav:
   - Getting Started: index.md
   - API Reference:
-      - Lottie: lottie.md
+      - Banner: banner.md
+      - BaseAd: base_ad.md
+      - InterstitialAd: interstitial_ad.md
+      # - NativeAd: native_ad.md
   - Changelog: changelog.md
   - License: license.md
 

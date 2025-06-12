@@ -1,1 +1,1 @@
-::: flet_ads.ads.InterstitialAd
+::: flet_ads.InterstitialAd

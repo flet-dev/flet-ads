@@ -1,1 +1,1 @@
-::: flet_ads.ads.NativeAd
+::: flet_ads.NativeAd

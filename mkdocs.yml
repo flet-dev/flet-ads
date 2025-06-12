@@ -75,7 +75,7 @@ extra:
 nav:
   - Getting Started: index.md
   - API Reference:
-      - Banner: banner.md
+      - Banner: banner_ad.md
       - BaseAd: base_ad.md
       - InterstitialAd: interstitial_ad.md
       # - NativeAd: native_ad.md

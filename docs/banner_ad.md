@@ -1,1 +1,1 @@
-::: flet_ads.BannerAd
+::: flet_ads.banner_ad.BannerAd

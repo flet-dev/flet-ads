@@ -14,14 +14,15 @@ __all__ = [
     "NativeAdTemplateStyle",
 ]
 
+
 class PrecisionType(Enum):
-    UNKNOWN= "unknown"
+    UNKNOWN = "unknown"
     """An ad value with unknown precision."""
 
     ESTIMATED = "estimated"
     """An ad value estimated from aggregated data."""
 
-    PUBLISHER_PROVIDED= "publisherProvided"
+    PUBLISHER_PROVIDED = "publisherProvided"
     """A publisher-provided ad value, such as manual CPMs in a mediation group."""
 
     PRECISE = "precise"
@@ -49,6 +50,7 @@ class PaidAdEvent(ft.ControlEvent):
     The currency code of the ad value.
     """
 
+
 @dataclass
 class AdRequest:
     """
@@ -57,6 +59,7 @@ class AdRequest:
     This class's properties mirror the native AdRequest API. See for example:
     [AdRequest.Builder for Android](https://developers.google.com/android/reference/com/google/android/gms/ads/AdRequest.Builder).
     """
+
     keywords: Optional[list[str]] = None
     """
     Words or phrases describing the current user activity.
@@ -74,14 +77,14 @@ class AdRequest:
     URLs representing web content near an ad.
     """
 
-    non_personalized_ads:  Optional[bool]= None
+    non_personalized_ads: Optional[bool] = None
     """
     Non-personalized ads are ads that are not based on a user’s past behavior.
 
     For more information: https://support.google.com/admob/answer/7676680?hl=en
     """
 
-    http_timeout:  Optional[int]= None
+    http_timeout: Optional[int] = None
     """
     A custom timeout (in milliseconds) for HTTPS calls during an ad request.
 
@@ -93,7 +96,6 @@ class AdRequest:
     """
     Extras to pass to the AdMob adapter.
     """
-
 
 
 class NativeAdTemplateType(Enum):
@@ -110,17 +112,17 @@ class NativeTemplateFontStyle(Enum):
 
 @dataclass
 class NativeAdTemplateTextStyle:
-    size: ft.OptionalNumber = None
-    text_color: ft.OptionalColorValue = None
-    bgcolor: ft.OptionalColorValue = None
+    size: Optional[ft.Number] = None
+    text_color: Optional[ft.ColorValue] = None
+    bgcolor: Optional[ft.ColorValue] = None
     style: Optional[NativeTemplateFontStyle] = None
 
 
 @dataclass
 class NativeAdTemplateStyle:
     template_type: NativeAdTemplateType = NativeAdTemplateType.MEDIUM
-    main_bgcolor: ft.OptionalColorValue = None
-    corner_radius: ft.OptionalNumber = None
+    main_bgcolor: Optional[ft.ColorValue] = None
+    corner_radius: Optional[ft.Number] = None
     call_to_action_text_style: Optional[NativeAdTemplateTextStyle] = None
     primary_text_style: Optional[NativeAdTemplateTextStyle] = None
     secondary_text_style: Optional[NativeAdTemplateTextStyle] = None

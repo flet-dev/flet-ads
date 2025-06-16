@@ -66,16 +66,17 @@ flet build apk ... --android-meta-data com.google.android.gms.ads.APPLICATION_ID
 flet build ipa ... --info-plist GADApplicationIdentifier=ca-app-pub-xxxxxxxxxxxxxxxx~yyyyyyyyyy
 ```
 
+
 !!! tip "Test Values"
     AdMob [provides](https://developers.google.com/admob/flutter/banner#always_test_with_test_ads) app and ad unit IDs for testing purposes.
-    
-        - AdMob app ID: `"ca-app-pub-3940256099942544~3347511713"`
-        - `BannerAd.unit_id` on **Android**: `"ca-app-pub-3940256099942544/9214589741"`
-        - `BannerAd.unit_id` on **iOS**: `"ca-app-pub-3940256099942544/2435281174"`
-        - `InterstitialAd.unit_id` on **Android**: `"ca-app-pub-3940256099942544/1033173712"`
-        - `InterstitialAd.unit_id` on **iOS**: `"ca-app-pub-3940256099942544/4411468910"`
-    
-    Remember to replace these values with your own when you're ready to package your app.
+
+    - AdMob app ID: `"ca-app-pub-3940256099942544~3347511713"`
+    - `BannerAd.unit_id` on **Android**: `"ca-app-pub-3940256099942544/9214589741"`
+    - `BannerAd.unit_id` on **iOS**: `"ca-app-pub-3940256099942544/2435281174"`
+    - `InterstitialAd.unit_id` on **Android**: `"ca-app-pub-3940256099942544/1033173712"`
+    - `InterstitialAd.unit_id` on **iOS**: `"ca-app-pub-3940256099942544/4411468910"`
+
+Remember to replace these values with your own when you're ready to package your app.
 
 ## Example
 

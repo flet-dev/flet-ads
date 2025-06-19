@@ -30,7 +30,7 @@ class PrecisionType(Enum):
 
 
 @dataclass
-class PaidAdEvent(ft.ControlEvent):
+class PaidAdEvent(ft.Event[ft.EventControlType]):
     """
     Event data for paid ad events.
     """

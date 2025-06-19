@@ -1,7 +1,7 @@
 [project]
-name = "ads_example"
+name = "flet-ads-example"
 version = "1.0.0"
-description = "Flet Ads Example"
+description = "flet-ads-example"
 readme = "README.md"
 license = "Apache-2.0"
 requires-python = ">=3.10"
@@ -13,25 +13,9 @@ dependencies = [
 # Docs: https://flet.dev/docs/publish
 [tool.flet]
 org = "com.mycompany"
-product = "Flet Ads Example"
+product = "flet-ads-example"
 company = "Flet"
 copyright = "Copyright (C) 2025 by Flet"
 
 [tool.flet.app]
 path = "src"
-
-[tool.flet.dev_packages]
-flet-ads = "../.."
-
-[tool.uv]
-dev-dependencies = [
-    "flet",
-    "flet-cli",
-    "flet-desktop",
-]
-
-[tool.uv.sources]
-flet-ads = { path = "../../", editable = true }
-flet = { git = "https://github.com/flet-dev/flet", subdirectory = "sdk/python/packages/flet", rev = "v1" }
-flet-cli = { git = "https://github.com/flet-dev/flet", subdirectory = "sdk/python/packages/flet-cli", rev = "v1" }
-flet-desktop = { git = "https://github.com/flet-dev/flet", subdirectory = "sdk/python/packages/flet-desktop", rev = "v1" }

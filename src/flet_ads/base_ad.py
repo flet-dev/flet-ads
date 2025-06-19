@@ -13,6 +13,7 @@ class BaseAd(ft.Control):
     Raises:
         AssertionError: When using this control on a web and/or non-mobile platform.
     """
+
     unit_id: str
     """
     Ad unit ID for this ad.
@@ -23,19 +24,19 @@ class BaseAd(ft.Control):
     Targeting information used to fetch an Ad.
     """
 
-    on_load: ft.OptionalControlEventCallable = None
+    on_load: ft.OptionalControlEventHandler["BaseAd"] = None
     """
     Called when this ad is loaded successfully.
     """
 
-    on_error: ft.OptionalControlEventCallable = None
+    on_error: ft.OptionalControlEventHandler["BaseAd"] = None
     """
     Called when an ad request failed.
     
     Event handler argument `data` property contains information about the error.
     """
 
-    on_open: ft.OptionalControlEventCallable = None
+    on_open: ft.OptionalControlEventHandler["BaseAd"] = None
     """
     Called when this ad opens up.
     
@@ -44,18 +45,18 @@ class BaseAd(ft.Control):
     interactions.
     """
 
-    on_close: ft.OptionalControlEventCallable = None
+    on_close: ft.OptionalControlEventHandler["BaseAd"] = None
     """
     Called when the full screen view has been closed. You should restart
     anything paused while handling [`on_open`][..].
     """
 
-    on_impression: ft.OptionalControlEventCallable = None
+    on_impression: ft.OptionalControlEventHandler["BaseAd"] = None
     """
     Called when an impression occurs on this ad.
     """
 
-    on_click: ft.OptionalControlEventCallable = None
+    on_click: ft.OptionalControlEventHandler["BaseAd"] = None
     """
     Called when this ad is clicked.
     """

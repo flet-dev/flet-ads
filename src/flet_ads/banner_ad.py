@@ -10,7 +10,7 @@ class BannerAd(BaseAd):
     Displays a banner ad.
     """
 
-    on_will_dismiss: ft.OptionalControlEventCallable = None
+    on_will_dismiss: ft.OptionalControlEventHandler["BannerAd"] = None
     """
     Called before dismissing a full screen view.
 
@@ -18,7 +18,7 @@ class BannerAd(BaseAd):
         Only available on iOS.
     """
 
-    on_paid: ft.OptionalEventCallable[PaidAdEvent] = None
+    on_paid: ft.OptionalControlEventHandler[PaidAdEvent["BannerAd"]] = None
     """
     Called when this ad is estimated to have earned money.
 

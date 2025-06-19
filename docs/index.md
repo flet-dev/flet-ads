@@ -28,24 +28,21 @@ This package supports the following platforms:
 To install the `flet-ads` package and add it to your project dependencies:
 
 === "uv"
-
-```bash
-uv add flet-ads
-```
+    ```bash
+    uv add flet-ads
+    ```
 
 === "pip"
-
-```bash
-pip install flet-ads
-```
-
-    You will have to manually add this package to your `requirements.txt` or `pyproject.toml`.
+    ```bash
+    pip install flet-ads  # (1)!
+    ```
 
 === "poetry"
+    ```bash
+    poetry add flet-ads
+    ```
 
-```bash
-poetry add flet-ads
-```
+1. After this, you will have to manually add this package to your `requirements.txt` or `pyproject.toml`.
 
 ### Packaging
 
@@ -99,4 +96,4 @@ Remember to replace these values with your own when you're ready to package your
 --8<-- "examples/ads_example/src/main.py"
 ``` 
 
-![Demo](assets/ads-demo.gif)
+![Example](assets/ads-demo.gif)

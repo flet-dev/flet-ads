@@ -9,6 +9,9 @@ from .base_ad import BaseAd
 class InterstitialAd(BaseAd):
     """
     Displays a full-screen interstitial ad.
+
+    Raises:
+        AssertionError: When using this control on a web and/or non-mobile platform.
     """
 
     def show(self):

@@ -8,6 +8,9 @@ from .types import PaidAdEvent
 class BannerAd(BaseAd):
     """
     Displays a banner ad.
+
+    Raises:
+        AssertionError: When using this control on a web and/or non-mobile platform.
     """
 
     on_will_dismiss: ft.OptionalControlEventHandler["BannerAd"] = None

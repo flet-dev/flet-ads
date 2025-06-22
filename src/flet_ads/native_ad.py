@@ -12,7 +12,7 @@ class NativeAd(BannerAd):
     Renders a native ad.
 
     Raises:
-        AssertionError: When neither `factory_id` nor `template_style` is set.
+        AssertionError: When neither [`factory_id`][..] nor [`template_style`][..] is set.
     """
 
     factory_id: str = None

@@ -4,7 +4,7 @@
 [![downloads](https://static.pepy.tech/badge/flet-ads/month)](https://pepy.tech/project/flet-ads)
 [![license](https://img.shields.io/github/license/flet-dev/flet-ads.svg)](https://github.com/flet-dev/flet-ads/blob/main/LICENSE)
 
-Display Google Ads in Flet apps.
+Display Google Ads in [Flet](https://flet.dev) apps.
 
 It is based on the [google_mobile_ads](https://pub.dev/packages/google_mobile_ads) Flutter package.
 

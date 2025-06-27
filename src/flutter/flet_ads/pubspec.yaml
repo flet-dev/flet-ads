@@ -1,8 +1,10 @@
 name: flet_ads
-description: Flet Ads control
+description: Display Google Ads in Flet apps.
 homepage: https://flet.dev
 repository: https://github.com/flet-dev/flet-ads/src/flutter/flet_ads
-version: 0.1.0
+issue_tracker: https://github.com/flet-dev/flet-ads/issues
+version: 0.2.0
+publish_to: none
 
 environment:
   sdk: '>=3.2.3 <4.0.0'
@@ -13,9 +15,14 @@ dependencies:
     sdk: flutter
 
   collection: ^1.16.0
-  google_mobile_ads: ^5.2.0
+  google_mobile_ads: ^6.0.0
 
-  flet: ^0.25.2
+  # flet: 0.70.0
+  flet:
+    git:
+      url: https://github.com/flet-dev/flet.git
+      path: packages/flet
+      ref: v1
 
 dev_dependencies:
   flutter_test:

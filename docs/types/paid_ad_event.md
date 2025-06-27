@@ -1,0 +1,1 @@
+::: flet_ads.types.PaidAdEvent

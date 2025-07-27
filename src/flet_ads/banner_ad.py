@@ -1,3 +1,5 @@
+from typing import Optional
+
 import flet as ft
 
 from .base_ad import BaseAd
@@ -10,10 +12,10 @@ class BannerAd(BaseAd):
     Displays a banner ad.
 
     Raises:
-        AssertionError: When using this control on a web and/or non-mobile platform.
+        AssertionError: When this control is used on a web and/or non-mobile platform.
     """
 
-    on_will_dismiss: ft.OptionalControlEventHandler["BannerAd"] = None
+    on_will_dismiss: Optional[ft.ControlEventHandler["BannerAd"]] = None
     """
     Called before dismissing a full screen view.
 
@@ -21,7 +23,7 @@ class BannerAd(BaseAd):
         Only available on iOS.
     """
 
-    on_paid: ft.OptionalControlEventHandler[PaidAdEvent["BannerAd"]] = None
+    on_paid: Optional[ft.ControlEventHandler[PaidAdEvent["BannerAd"]]] = None
     """
     Called when this ad is estimated to have earned money.
 

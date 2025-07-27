@@ -1,4 +1,5 @@
 from dataclasses import field
+from typing import Optional
 
 import flet as ft
 
@@ -24,44 +25,45 @@ class BaseAd(ft.Control):
     Targeting information used to fetch an Ad.
     """
 
-    on_load: ft.OptionalControlEventHandler["BaseAd"] = None
+    on_load: Optional[ft.ControlEventHandler["BaseAd"]] = None
     """
     Called when this ad is loaded successfully.
     """
 
-    on_error: ft.OptionalControlEventHandler["BaseAd"] = None
+    on_error: Optional[ft.ControlEventHandler["BaseAd"]] = None
     """
     Called when an ad request failed.
-    
-    Event handler argument `data` property contains information about the error.
+
+    Event handler argument [`data`][flet.Event.data] property
+    contains information about the error.
     """
 
-    on_open: ft.OptionalControlEventHandler["BaseAd"] = None
+    on_open: Optional[ft.ControlEventHandler["BaseAd"]] = None
     """
     Called when this ad opens up.
-    
+
     A full screen view/overlay is presented in response to the user clicking
     on an ad. You may want to pause animations and time sensitive
     interactions.
     """
 
-    on_close: ft.OptionalControlEventHandler["BaseAd"] = None
+    on_close: Optional[ft.ControlEventHandler["BaseAd"]] = None
     """
     Called when the full screen view has been closed. You should restart
-    anything paused while handling [`on_open`][..].
+    anything paused while handling [`on_open`][flet_ads.BaseAd.on_open].
     """
 
-    on_impression: ft.OptionalControlEventHandler["BaseAd"] = None
+    on_impression: Optional[ft.ControlEventHandler["BaseAd"]] = None
     """
     Called when an impression occurs on this ad.
     """
 
-    on_click: ft.OptionalControlEventHandler["BaseAd"] = None
+    on_click: Optional[ft.ControlEventHandler["BaseAd"]] = None
     """
     Called when this ad is clicked.
     """
 
     def before_update(self):
-        assert (
-            not self.page.web and self.page.platform.is_mobile()
-        ), f"{self.__class__.__name__} is only supported on Mobile (Android and iOS)"
+        assert not self.page.web and self.page.platform.is_mobile(), (
+            f"{self.__class__.__name__} is only supported on Mobile (Android and iOS)"
+        )

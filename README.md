@@ -47,4 +47,4 @@ To install the `flet-ads` package and add it to your project dependencies:
 
 ## Examples
 
-For examples, see [this](./examples)
+For examples, see [these](./examples).

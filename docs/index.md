@@ -94,6 +94,8 @@ Remember to replace these values with your own when you're ready to package your
 
 ```python title="main.py"
 --8<-- "examples/ads_example/src/main.py"
-``` 
+```
 
-![Example](assets/ads-demo.gif)
+![Example](assets/ads-demo.gif){width="80%"}
+/// caption
+///

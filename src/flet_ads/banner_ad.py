@@ -2,8 +2,8 @@ from typing import Optional
 
 import flet as ft
 
-from .base_ad import BaseAd
-from .types import PaidAdEvent
+from flet_ads.base_ad import BaseAd
+from flet_ads.types import PaidAdEvent
 
 
 @ft.control("BannerAd")

@@ -1,6 +1,6 @@
 import flet as ft
 
-from .base_ad import BaseAd
+from flet_ads.base_ad import BaseAd
 
 
 @ft.control("InterstitialAd")

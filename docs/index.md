@@ -92,10 +92,10 @@ Remember to replace these values with your own when you're ready to package your
 
 ## Example
 
-```python title="main.py"
---8<-- "examples/ads_example/src/main.py"
+```python
+--8<-- "examples/ads_example/src/example_1.py"
 ```
 
-![Example](assets/ads-demo.gif){width="80%"}
+![example_1](../examples/ads_example/src/media/example_1.gif){width="80%"}
 /// caption
 ///

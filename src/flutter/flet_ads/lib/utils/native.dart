@@ -18,8 +18,8 @@ NativeTemplateFontStyle? parseNativeTemplateFontStyle(String? value,
       defaultValue;
 }
 
-NativeTemplateTextStyle? parseNativeTemplateTextStyle(dynamic value,
-    ThemeData theme,
+NativeTemplateTextStyle? parseNativeTemplateTextStyle(
+    dynamic value, ThemeData theme,
     [NativeTemplateTextStyle? defaultValue]) {
   if (value == null) return defaultValue;
 

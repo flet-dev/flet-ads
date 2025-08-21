@@ -25,8 +25,8 @@ class _BannerAdControlState extends State<BannerAdControl> with FletStoreMixin {
         : 'ca-app-pub-3940256099942544/1033173712';
     BannerAd bannerAd = BannerAd(
       adUnitId: widget.control.getString("unit_id", testAdUnitId)!,
-      request: parseAdRequest(
-          widget.control.get("request"), const AdRequest())!,
+      request:
+          parseAdRequest(widget.control.get("request"), const AdRequest())!,
       size: AdSize.banner,
       listener: BannerAdListener(
         // Called when an ad is successfully received.

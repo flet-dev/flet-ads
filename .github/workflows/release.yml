@@ -56,6 +56,15 @@ jobs:
           name: dist
           path: dist/*.whl
 
+      # Files that trigger a publishing
+      - uses: dorny/paths-filter@v3
+        id: changes
+        with:
+          filters: |
+            publish:
+              - 'src/**'
+              - 'pyproject.toml'
+
       - name: Publish Python package
-        if: github.event_name != 'pull_request' && (github.ref == 'refs/heads/main' || startsWith(github.ref, 'refs/tags/'))
+        if: steps.changes.outputs.publish == 'true' && github.event_name != 'pull_request' && (github.ref == 'refs/heads/main' || startsWith(github.ref, 'refs/tags/'))
         run: uv publish

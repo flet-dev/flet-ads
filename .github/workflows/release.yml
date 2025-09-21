@@ -41,11 +41,10 @@ jobs:
           cache: true
 
       - name: Analyze Flutter package
+        working-directory: src/flutter/flet_ads
         run: |
-          cd src/flutter/*
           dart pub get
           dart analyze
-          cd -
 
       - name: Build Python package
         run: uv build
@@ -56,8 +55,8 @@ jobs:
           name: dist
           path: dist/*.whl
 
-      # Files that trigger a publishing
-      - uses: dorny/paths-filter@v3
+      - name: Filter publish-relevant changes
+        uses: dorny/paths-filter@v3
         id: changes
         with:
           filters: |

@@ -1,3 +1,7 @@
+# THIS PROJECT HAS BEEN ARCHIVED
+
+`flet-ads` is now part of the main [Flet repository](https://github.com/flet-dev/flet/tree/main/sdk/python/packages/flet-ads).
+
 # flet-ads
 
 [![pypi](https://img.shields.io/pypi/v/flet-ads.svg)](https://pypi.python.org/pypi/flet-ads)
